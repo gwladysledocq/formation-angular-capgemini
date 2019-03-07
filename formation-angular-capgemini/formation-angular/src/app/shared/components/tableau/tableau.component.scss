@@ -19,3 +19,14 @@
     display: contents;
   }
 }
+
+app-template-a #tab thead {
+  background: lighten($dark-color, 15);
+  color: $light-color;
+}
+
+app-template-b #tab thead {
+  background: lighten($dark-color, 30);
+  color: $light-color;
+}
+

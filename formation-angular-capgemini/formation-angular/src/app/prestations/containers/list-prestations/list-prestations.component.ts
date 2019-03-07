@@ -1,3 +1,4 @@
+import { Links } from './../../../shared/interfaces/links';
 import { Prestation } from './../../../shared/models/prestation.model';
 import { PrestationService } from './../../services/prestation.service';
 import { Component, OnInit } from '@angular/core';
@@ -21,14 +22,19 @@ export class ListPrestationsComponent implements OnInit {
     'State'
   ];
 
+  link: Links  = {
+    route: 'add',
+    label: 'Ajouter prestation'
+  };
+
   constructor(private ps: PrestationService) { }
 
   ngOnInit() {
     this.collection = this.ps.collection;
   }
 
-  update(obj) {
-    this.ps.update(obj.presta, obj.state);
+  update(presta) {
+    this.ps.update(presta);
   }
 
 }

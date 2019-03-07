@@ -22,7 +22,11 @@ export class PrestationService {
     this.pCollection = col;
   }
 
-  update(item: Prestation, state: State) {
-    item.state = state;
+  update(item: Prestation) {
+    console.log(`Appel bdd d\'update prestation ${item}`);
+  }
+
+  add(item: Prestation) {
+    this.collection.push(new Prestation(item));
   }
 }

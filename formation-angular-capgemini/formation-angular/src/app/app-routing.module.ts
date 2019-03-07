@@ -1,11 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Router, RouterModule, Routes } from '@angular/router';
-import { PageLoginComponent } from './login/pages/page-login/page-login.component';
 
 const appRoutes: Routes = [
   { path: '',
     redirectTo: '/login',
     pathMatch: 'full'
+  },
+  {
+    path: 'user',
+    loadChildren: './login/login.module#LoginModule'
+  },
+  {
+    path: 'register',
+    loadChildren: './login/login.module#LoginModule'
   },
   {
     path: 'prestations',

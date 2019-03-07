@@ -25,4 +25,8 @@ export class ClientsService {
   update(item: Client, state: StateClient) {
     item.state = state;
   }
+
+  add(item: Client) {
+    this.collection.push(new Client(item));
+  }
 }

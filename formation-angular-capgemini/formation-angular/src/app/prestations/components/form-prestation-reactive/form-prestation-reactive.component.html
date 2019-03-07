@@ -1,0 +1,50 @@
+<div class="container">
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+          <label for="type">Type</label>
+          <input type="text" class="form-control" id="type" formControlName="typePresta">
+          <div class="alert alert-danger"
+          *ngIf="form.get('typePresta').invalid && form.get('typePresta').touched">champ invalid</div>
+        </div>
+
+        <div class="form-group">
+          <label for="client">Client</label>
+          <input type="text" class="form-control" id="client" formControlName="client">
+          <div class="alert alert-danger"
+          *ngIf="form.get('client').invalid && form.get('client').touched">champ invalid</div>
+        </div>
+
+        <div class="form-group">
+          <label for="nbJour">Nombre de Jours</label>
+          <input type="number" class="form-control" id="nbJour" formControlName="nbJours">
+        </div>
+
+        <div class="form-group">
+          <label for="tjm">TJM</label>
+          <input type="number" class="form-control" id="tjm" formControlName="tjmHt">
+        </div>
+
+        <div class="form-group">
+          <label for="tva">TVA</label>
+          <input type="number" class="form-control" id="tva" formControlName="tauxTva">
+        </div>
+
+        <div class="form-group">
+          <label for="state">Etat</label>
+          <select class="form-control" id="state" formControlName="state">
+            <option *ngFor="let state of states | keyvalue" [value]="state.value">{{ state.value }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="comment"></label>
+          <textarea id="comment" class="form-control" formControlName="comment"></textarea>
+        </div>
+
+        <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
+
+      </form>
+
+</div>

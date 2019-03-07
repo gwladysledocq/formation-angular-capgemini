@@ -10,7 +10,7 @@ import { Prestation } from 'src/app/shared/models/prestation.model';
 export class ItemPrestationComponent implements OnInit {
 
   @Input() item: Prestation;
-  @Output() newState: EventEmitter<{presta: Prestation, state: State}> = new EventEmitter();
+  @Output() newState: EventEmitter<Prestation> = new EventEmitter();
   states = State;
 
   constructor() { }
@@ -18,9 +18,8 @@ export class ItemPrestationComponent implements OnInit {
   ngOnInit() {
   }
 
-  changeState(event) {
-    const etat = event.target.value;
-    this.newState.emit({ presta: this.item, state: etat});
+  changeState() {
+    this.newState.emit(this.item);
   }
 
 }

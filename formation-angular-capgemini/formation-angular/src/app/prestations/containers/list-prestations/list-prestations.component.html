@@ -2,3 +2,5 @@
     <app-item-prestation *ngFor="let obj of collection" [item]='obj'
     (newState)="update($event)"></app-item-prestation>
 </app-tableau>
+
+<app-bouton-add [link]="link"></app-bouton-add>

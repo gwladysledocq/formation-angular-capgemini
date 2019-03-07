@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientsService } from '../../services/clients.service';
+import { Links } from './../../../shared/interfaces/links';
 import { Client } from './../../../shared/models/client.model';
 
 @Component({
@@ -16,6 +17,11 @@ export class ListClientsComponent implements OnInit {
     'E-mail',
     'State'
   ];
+
+  link: Links  = {
+    route: 'add',
+    label: 'Ajouter client'
+  };
 
   constructor(private cs: ClientsService) { }
 
