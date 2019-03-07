@@ -1,0 +1,4 @@
+<app-tableau [headers]="titreTableauClients">
+  <app-item-client *ngFor="let obj of collection" [item]='obj'
+  (newState)="update($event)"></app-item-client>
+</app-tableau>

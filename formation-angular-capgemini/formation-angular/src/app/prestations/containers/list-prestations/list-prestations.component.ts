@@ -11,10 +11,24 @@ export class ListPrestationsComponent implements OnInit {
 
   collection: Prestation[];
 
+  titreTableauPrestations: string[] = [
+    'Type',
+    'Client',
+    'Durée',
+    'Tjm HT',
+    'Total HT',
+    'Total TTC',
+    'State'
+  ];
+
   constructor(private ps: PrestationService) { }
 
   ngOnInit() {
     this.collection = this.ps.collection;
+  }
+
+  update(obj) {
+    this.ps.update(obj.presta, obj.state);
   }
 
 }

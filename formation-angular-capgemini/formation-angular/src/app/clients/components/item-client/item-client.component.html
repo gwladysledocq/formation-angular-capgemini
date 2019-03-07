@@ -1,0 +1,14 @@
+<tr>
+  <td>{{ item.name }}</td>
+  <td>{{ item.email }}</td>
+  <td [appState]="item.state">
+    <select class="form-control" (change)="changeState($event)">
+      <!-- Normallement [value]="state.key" pour enregistré la clé en bdd-->
+      <option *ngFor="let state of states | keyvalue"
+              [value]="state.value"
+              [selected]="item.state === state.value">
+        {{ state.value }}
+      </option>
+    </select>
+  </td>
+</tr>
