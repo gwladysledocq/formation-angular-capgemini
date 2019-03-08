@@ -1,0 +1,9 @@
+<div class="container-fluid" *ngIf="presta$ | async as presta">
+  <p>Type : {{ presta.typePresta }}</p>
+  <p>Client : {{ presta.client }}</p>
+  <p>Nombre de jours : {{ presta.nbJours }}</p>
+  <p>Taux de TVA : {{ presta.tauxTva }}</p>
+  <p>Total HT : {{ presta | total | currency:'EUR' }}</p>
+  <p>Total TTC : {{ presta | total:presta.tauxTva | currency:'EUR' }}</p>
+  <p>State : {{ presta.state }}</p>
+</div>

@@ -1,0 +1,9 @@
+<div class="container-fluid" *ngIf="presta$ | async as presta">
+  <form [formGroup]="form">
+    <div class="form-group">
+      <small *ngIf="msg$ | async as msg">{{ msg }}</small>
+      <label for="comment">Commentaire</label>
+      <textarea class="form-control" id="comment" formControlName="comment" [value]="presta.comment"></textarea>
+    </div>
+  </form>
+</div>

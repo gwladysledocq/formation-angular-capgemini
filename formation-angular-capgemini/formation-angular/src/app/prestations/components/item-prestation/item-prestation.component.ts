@@ -11,6 +11,7 @@ export class ItemPrestationComponent implements OnInit {
 
   @Input() item: Prestation;
   @Output() newState: EventEmitter<Prestation> = new EventEmitter();
+  @Output() selectedPrestation: EventEmitter<Prestation> = new EventEmitter();
   states = State;
 
   constructor() { }
@@ -20,6 +21,10 @@ export class ItemPrestationComponent implements OnInit {
 
   changeState() {
     this.newState.emit(this.item);
+  }
+
+  selectItem() {
+    this.selectedPrestation.emit(this.item);
   }
 
 }

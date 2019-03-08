@@ -1,6 +1,12 @@
-<app-tableau [headers]="titreTableauPrestations">
-    <app-item-prestation *ngFor="let obj of collection" [item]='obj'
-    (newState)="update($event)"></app-item-prestation>
-</app-tableau>
+<ng-container *ngIf="collection$ | async as collection">
 
-<app-bouton-add [link]="link"></app-bouton-add>
+    <app-tableau [headers]="titreTableauPrestations">
+      <app-item-prestation *ngFor="let obj of collection | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize" [item]="obj" (changeItem)="update($event)" (selectedPrestation)="selectItem($event)"></app-item-prestation>
+    </app-tableau>
+  
+    <ngb-pagination class="d-flex justify-content-center" [(page)]="page" [pageSize]="pageSize" [maxSize]="maxSize" [collectionSize]="collection.length"></ngb-pagination>
+  
+</ng-container>
+  
+  
+  <app-bouton-add [link]="link"></app-bouton-add>

@@ -11,7 +11,8 @@ export const environment = {
     projectId: 'formation-angular-9951d',
     storageBucket: 'formation-angular-9951d.appspot.com',
     messagingSenderId: '240402596878'
-  }
+  },
+  URL_API: `https://monurl.com/`
 };
 
 
